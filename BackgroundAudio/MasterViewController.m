@@ -85,7 +85,6 @@
     self.title = @"Querying...";
     MusicQuery *musicQuery = [[MusicQuery alloc]init];
     [musicQuery queryForSongsWithBlock:^(NSDictionary *result) {
-        NSLog(@"results!");
         _objects = [result objectForKey:@"artists"];
         self.title = [NSString stringWithFormat:@"Songs (%@)", [result objectForKey:@"songCount"]];
         [self.tableView reloadData];

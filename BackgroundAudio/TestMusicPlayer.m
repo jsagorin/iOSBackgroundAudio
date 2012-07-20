@@ -87,4 +87,24 @@
     [[self avQueuePlayer] removeAllItems];
 }
 
+#pragma mark - remote control events
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    NSLog(@"received event!");
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        switch (receivedEvent.subtype) {
+            case UIEventSubtypeRemoteControlTogglePlayPause: {
+                if ([self avQueuePlayer].rate > 0.0) {
+                    [[self avQueuePlayer] pause];
+                } else {
+                    [[self avQueuePlayer] play];
+                }
+
+                break;
+            }
+            default:
+                break;
+        }
+    }
+}
+
 @end

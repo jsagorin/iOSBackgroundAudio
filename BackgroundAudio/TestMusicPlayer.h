@@ -18,4 +18,5 @@
 -(void) pause;
 -(void) play;
 -(void) clear;
+-(void) remoteControlReceivedWithEvent:(UIEvent *)receivedEvent;
 @end

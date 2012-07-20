@@ -66,12 +66,16 @@
     [super viewDidAppear:animated];
     //play song
     [self.musicPlayer playSongWithId:self.songId];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
 }
 
 -(void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.musicPlayer clear];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -88,5 +92,16 @@
         [self.musicPlayer play];
         [button setTitle:@"Pause" forState:UIControlStateNormal];
     }
+}
+
+#pragma mark - remote control events
+
+#pragma mark - audio session management
+- (BOOL) canBecomeFirstResponder {
+    return YES;
+}
+
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    [self.musicPlayer remoteControlReceivedWithEvent:receivedEvent];
 }
 @end
