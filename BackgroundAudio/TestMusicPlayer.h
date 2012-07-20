@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TestMusicPlayer : NSObject
+
+@interface TestMusicPlayer : NSObject 
 
 //initialize the audio session
 +(void) initSession;
 
+-(void) playSongWithId:(NSNumber*)songId;
+-(void) pause;
+-(void) play;
+-(void) clear;
 @end

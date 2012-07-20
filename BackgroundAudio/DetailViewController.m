@@ -7,9 +7,11 @@
 //
 
 #import "DetailViewController.h"
+#import "TestMusicPlayer.h"
 
 @interface DetailViewController ()
 - (void)configureView;
+@property (strong, nonatomic) TestMusicPlayer *musicPlayer;
 @property (strong, nonatomic) IBOutlet UILabel *songTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *songIdLabel;
@@ -28,6 +30,8 @@
 @synthesize albumNameLabel = _albumNameLabel;
 @synthesize songTitleLabel = _songTitleLabel;
 
+@synthesize musicPlayer = _musicPlayer;
+
 #pragma mark - Managing the detail item
 
 - (void)configureView
@@ -42,6 +46,7 @@
 {
     [super viewDidLoad];
     [self configureView];
+    self.musicPlayer = [[TestMusicPlayer alloc]init];
 }
 
 - (void)viewDidUnload
@@ -51,6 +56,19 @@
     self.albumNameLabel = nil;
     self.songIdLabel = nil;
     self.songTitleLabel = nil;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    //play song
+    [self.musicPlayer playSongWithId:self.songId];
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.musicPlayer clear];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

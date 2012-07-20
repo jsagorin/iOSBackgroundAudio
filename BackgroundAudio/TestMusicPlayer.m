@@ -7,10 +7,17 @@
 //
 
 #import "TestMusicPlayer.h"
+#import "MusicQuery.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <MediaPlayer/MediaPlayer.h>
 
+@interface TestMusicPlayer()
+@property(nonatomic,strong) AVQueuePlayer *avQueuePlayer;
+@end
 @implementation TestMusicPlayer
+
+@synthesize avQueuePlayer=_avQueuePlayer;
 
 +(void)initSession
 {
@@ -38,4 +45,46 @@
     }
     
 }
+
+-(AVPlayer *)avQueuePlayer
+{
+    if (!_avQueuePlayer) {
+        _avQueuePlayer = [[AVQueuePlayer alloc]init];
+    }
+    
+    return _avQueuePlayer;
+}
+
+-(void) playSongWithId:(NSNumber*)songId
+{
+    MPMediaItem *mediaItem = [[[MusicQuery alloc]init] queryForSongWithId:songId];
+    if (mediaItem) {
+        if (mediaItem) {
+            NSURL *assetUrl = [mediaItem valueForProperty: MPMediaItemPropertyAssetURL];
+            AVPlayerItem *avSongItem = [[AVPlayerItem alloc] initWithURL:assetUrl];
+            if (avSongItem) {
+                [[self avQueuePlayer] insertItem:avSongItem afterItem:nil];
+                [self play];
+            }
+        }
+    }
+}
+
+#pragma mark - player actions
+-(void) pause
+{
+    [[self avQueuePlayer] pause];
+}
+
+-(void) play
+{
+    [[self avQueuePlayer] play];
+}
+
+
+-(void) clear
+{
+    [[self avQueuePlayer] removeAllItems];
+}
+
 @end

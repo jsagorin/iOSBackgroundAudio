@@ -55,7 +55,7 @@
     NSDictionary *artistAlbum = [_objects objectAtIndex:indexPath.section];
     NSDictionary *song = [[artistAlbum objectForKey:@"songs"] objectAtIndex:indexPath.row];
     cell.textLabel.text = [song objectForKey:@"title"];
-    cell.detailTextLabel.text = [artistAlbum objectForKey:@"artist"];
+    cell.detailTextLabel.text = [artistAlbum objectForKey:@"album"];
     return cell;
 }
 
@@ -76,7 +76,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
      NSDictionary *artistAlbum = [_objects objectAtIndex:section];
-    return [artistAlbum objectForKey:@"album"];
+    return [artistAlbum objectForKey:@"artist"];
 }
 
 #pragma mark - Action delegate

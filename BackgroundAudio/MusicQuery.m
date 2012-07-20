@@ -7,8 +7,6 @@
 //
 
 #import "MusicQuery.h"
-#import <MediaPlayer/MediaPlayer.h>
-
 @interface MusicQuery()
 -(NSDictionary*)queryForSongs;
 @end
@@ -75,5 +73,17 @@
         }
         
         return [NSDictionary dictionaryWithObjectsAndKeys: artists, @"artists", [NSNumber numberWithInt:songCount], @"songCount", nil];
+}
+
+-(MPMediaItem*)queryForSongWithId:(NSNumber*)songPersistenceId
+{
+    MPMediaPropertyPredicate *mediaItemPersistenceIdPredicate =
+    [MPMediaPropertyPredicate predicateWithValue: songPersistenceId
+                                     forProperty: MPMediaItemPropertyPersistentID];
+    
+    MPMediaQuery *songQuery = [[MPMediaQuery alloc] init];
+    [songQuery addFilterPredicate: mediaItemPersistenceIdPredicate];
+    
+   return [[songQuery items] lastObject];
 }
 @end

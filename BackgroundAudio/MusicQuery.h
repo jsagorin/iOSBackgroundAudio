@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface MusicQuery : NSObject
 
 //query music collection for all songs
 -(void) queryForSongsWithBlock:(void (^)(NSDictionary* result))block;
+-(MPMediaItem*)queryForSongWithId:(NSNumber*)songPersistenceId;
+
 @end
