@@ -47,6 +47,7 @@
 {
     [super viewDidLoad];
     [self configureView];
+    [TestMusicPlayer initSession];
     self.musicPlayer = [[TestMusicPlayer alloc]init];
 }
 
