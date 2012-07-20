@@ -43,35 +43,35 @@
                 NSString *artistName = [songMediumItem valueForProperty: MPMediaItemPropertyArtist];
                 NSString *songTitle =  [songMediumItem valueForProperty: MPMediaItemPropertyTitle];
                 NSNumber *persistentSongItemId = [songMediumItem valueForProperty:MPMediaItemPropertyPersistentID];
+                NSDictionary *artistAlbum = [songSortingArray objectForKey:albumName];
+                if (!artistAlbum) {
+                    NSMutableArray *songs = [NSMutableArray array];
+                    artistAlbum = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artistName,albumName,songs,nil] 
+                                                              forKeys:[NSArray arrayWithObjects:@"artist",@"album", @"songs",nil]];
+                    
+                    [songSortingArray setObject:artistAlbum forKey:albumName];
+                }
                 
-                NSLog(@"artist %@ album %@ song %@", artistName, albumName, songTitle);
-//                ArtistAlbum *artistAlbum = [songSortingArray objectForKey:albumName];
-//                if (!artistAlbum) {
-//                    artistAlbum = [[ArtistAlbum alloc] initWithArtistName:artistName albumName:albumName];
-//                    [songSortingArray setObject:artistAlbum forKey:albumName];
-//                    [artistAlbum release];
-//                }
-//                Song *song = [[[Song alloc] init] autorelease];
-//                song.songTitle = songTitle;
-//                song.songPersistenceId = persistentSongItemId;
-//                [artistAlbum addSong:song];
-//                songCount++;
+                NSDictionary *song = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:songTitle,persistentSongItemId,nil] 
+                                                                   forKeys:[NSArray arrayWithObjects:@"title",@"songId",nil]];
+                [[artistAlbum objectForKey:@"songs"] addObject:song];                       
+                songCount++;
             }
             
-//            NSArray *albumKeys = [songSortingArray keysSortedByValueUsingComparator:^(id obj1, id obj2) {
-//                ArtistAlbum *one = (ArtistAlbum*)obj1;
-//                ArtistAlbum *two = (ArtistAlbum*)obj2;
-//                
-//                NSString *albumName1 = one.album.albumName;
-//                NSString *albumName2 = two.album.albumName;
-//                return [albumName1 localizedCaseInsensitiveCompare:albumName2];
-//            }];
-//            
-//            for (NSString *albumKey in albumKeys) {
-//                [artists addObject:[songSortingArray objectForKey:albumKey]];
-//            }
-//            
-//            [songSortingArray removeAllObjects];
+            NSArray *albumKeys = [songSortingArray keysSortedByValueUsingComparator:^(id obj1, id obj2) {
+                NSDictionary *one = (NSDictionary*)obj1;
+                NSDictionary *two = (NSDictionary*)obj2;
+                
+                NSString *albumName1 = [one objectForKey:@"album"];
+                NSString *albumName2 = [two objectForKey:@"album"];
+                return [albumName1 localizedCaseInsensitiveCompare:albumName2];
+            }];
+            
+            for (NSString *albumKey in albumKeys) {
+                [artists addObject:[songSortingArray objectForKey:albumKey]];
+            }
+            
+            [songSortingArray removeAllObjects];
         }
         
         return [NSDictionary dictionaryWithObjectsAndKeys: artists, @"artists", [NSNumber numberWithInt:songCount], @"songCount", nil];

@@ -10,8 +10,9 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
-
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) NSString *artistName;
+@property (strong, nonatomic) NSString *songId;
+@property (strong, nonatomic) NSString *songTitle;
+@property (strong, nonatomic) NSString *albumName;
 
 @end

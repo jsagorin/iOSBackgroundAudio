@@ -10,46 +10,47 @@
 
 @interface DetailViewController ()
 - (void)configureView;
+@property (strong, nonatomic) IBOutlet UILabel *songTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *artistNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *songIdLabel;
+@property (strong, nonatomic) IBOutlet UILabel *albumNameLabel;
+
 @end
 
 @implementation DetailViewController
 
-@synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
+@synthesize artistName = _artistName;
+@synthesize albumName = _albumName;
+@synthesize songId = _songId;
+@synthesize songTitle = _songTitle;
+@synthesize songIdLabel = _songIdLabel;
+@synthesize artistNameLabel = _artistNameLabel;
+@synthesize albumNameLabel = _albumNameLabel;
+@synthesize songTitleLabel = _songTitleLabel;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
-
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
+    self.artistNameLabel.text = self.artistName;
+    self.albumNameLabel.text = self.albumName;
+    self.songTitleLabel.text = self.songTitle;
+    self.songIdLabel.text = [NSString stringWithFormat :@"%@",self.songId];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    self.detailDescriptionLabel = nil;
+    self.artistNameLabel = nil;
+    self.albumNameLabel = nil;
+    self.songIdLabel = nil;
+    self.songTitleLabel = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
