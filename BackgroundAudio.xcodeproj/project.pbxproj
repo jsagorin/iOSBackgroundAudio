@@ -1,0 +1,287 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89E4502015B8EEB2008AC606 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4501F15B8EEB2008AC606 /* UIKit.framework */; };
+		89E4502215B8EEB2008AC606 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4502115B8EEB2008AC606 /* Foundation.framework */; };
+		89E4502415B8EEB2008AC606 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4502315B8EEB2008AC606 /* CoreGraphics.framework */; };
+		89E4502A15B8EEB2008AC606 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89E4502815B8EEB2008AC606 /* InfoPlist.strings */; };
+		89E4502C15B8EEB2008AC606 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E4502B15B8EEB2008AC606 /* main.m */; };
+		89E4503015B8EEB2008AC606 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E4502F15B8EEB2008AC606 /* AppDelegate.m */; };
+		89E4503315B8EEB2008AC606 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E4503115B8EEB2008AC606 /* MainStoryboard.storyboard */; };
+		89E4503615B8EEB2008AC606 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E4503515B8EEB2008AC606 /* MasterViewController.m */; };
+		89E4503915B8EEB2008AC606 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E4503815B8EEB2008AC606 /* DetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		89E4501B15B8EEB2008AC606 /* BackgroundAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89E4501F15B8EEB2008AC606 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		89E4502115B8EEB2008AC606 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		89E4502315B8EEB2008AC606 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		89E4502715B8EEB2008AC606 /* BackgroundAudio-Info.plist */ = {isa = PBXFileReference; path = "BackgroundAudio-Info.plist"; sourceTree = "<group>"; };
+		89E4502915B8EEB2008AC606 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89E4502B15B8EEB2008AC606 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		89E4502D15B8EEB2008AC606 /* BackgroundAudio-Prefix.pch */ = {isa = PBXFileReference; path = "BackgroundAudio-Prefix.pch"; sourceTree = "<group>"; };
+		89E4502E15B8EEB2008AC606 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		89E4502F15B8EEB2008AC606 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		89E4503215B8EEB2008AC606 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		89E4503415B8EEB2008AC606 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		89E4503515B8EEB2008AC606 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		89E4503715B8EEB2008AC606 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		89E4503815B8EEB2008AC606 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89E4501815B8EEB2008AC606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89E4502015B8EEB2008AC606 /* UIKit.framework in Frameworks */,
+				89E4502215B8EEB2008AC606 /* Foundation.framework in Frameworks */,
+				89E4502415B8EEB2008AC606 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89E4501015B8EEB2008AC606 = {
+			isa = PBXGroup;
+			children = (
+				89E4502515B8EEB2008AC606 /* BackgroundAudio */,
+				89E4501E15B8EEB2008AC606 /* Frameworks */,
+				89E4501C15B8EEB2008AC606 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89E4501C15B8EEB2008AC606 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89E4501B15B8EEB2008AC606 /* BackgroundAudio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89E4501E15B8EEB2008AC606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89E4501F15B8EEB2008AC606 /* UIKit.framework */,
+				89E4502115B8EEB2008AC606 /* Foundation.framework */,
+				89E4502315B8EEB2008AC606 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89E4502515B8EEB2008AC606 /* BackgroundAudio */ = {
+			isa = PBXGroup;
+			children = (
+				89E4502E15B8EEB2008AC606 /* AppDelegate.h */,
+				89E4502F15B8EEB2008AC606 /* AppDelegate.m */,
+				89E4503115B8EEB2008AC606 /* MainStoryboard.storyboard */,
+				89E4503415B8EEB2008AC606 /* MasterViewController.h */,
+				89E4503515B8EEB2008AC606 /* MasterViewController.m */,
+				89E4503715B8EEB2008AC606 /* DetailViewController.h */,
+				89E4503815B8EEB2008AC606 /* DetailViewController.m */,
+				89E4502615B8EEB2008AC606 /* Supporting Files */,
+			);
+			path = BackgroundAudio;
+			sourceTree = "<group>";
+		};
+		89E4502615B8EEB2008AC606 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89E4502715B8EEB2008AC606 /* BackgroundAudio-Info.plist */,
+				89E4502815B8EEB2008AC606 /* InfoPlist.strings */,
+				89E4502B15B8EEB2008AC606 /* main.m */,
+				89E4502D15B8EEB2008AC606 /* BackgroundAudio-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89E4501A15B8EEB2008AC606 /* BackgroundAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89E4503C15B8EEB2008AC606 /* Build configuration list for PBXNativeTarget "BackgroundAudio" */;
+			buildPhases = (
+				89E4501715B8EEB2008AC606 /* Sources */,
+				89E4501815B8EEB2008AC606 /* Frameworks */,
+				89E4501915B8EEB2008AC606 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BackgroundAudio;
+			productName = BackgroundAudio;
+			productReference = 89E4501B15B8EEB2008AC606 /* BackgroundAudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89E4501215B8EEB2008AC606 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 89E4501515B8EEB2008AC606 /* Build configuration list for PBXProject "BackgroundAudio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 89E4501015B8EEB2008AC606;
+			productRefGroup = 89E4501C15B8EEB2008AC606 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89E4501A15B8EEB2008AC606 /* BackgroundAudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89E4501915B8EEB2008AC606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89E4502A15B8EEB2008AC606 /* InfoPlist.strings in Resources */,
+				89E4503315B8EEB2008AC606 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89E4501715B8EEB2008AC606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89E4502C15B8EEB2008AC606 /* main.m in Sources */,
+				89E4503015B8EEB2008AC606 /* AppDelegate.m in Sources */,
+				89E4503615B8EEB2008AC606 /* MasterViewController.m in Sources */,
+				89E4503915B8EEB2008AC606 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		89E4502815B8EEB2008AC606 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89E4502915B8EEB2008AC606 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		89E4503115B8EEB2008AC606 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89E4503215B8EEB2008AC606 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89E4503A15B8EEB2008AC606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		89E4503B15B8EEB2008AC606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89E4503D15B8EEB2008AC606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BackgroundAudio/BackgroundAudio-Prefix.pch";
+				INFOPLIST_FILE = "BackgroundAudio/BackgroundAudio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		89E4503E15B8EEB2008AC606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BackgroundAudio/BackgroundAudio-Prefix.pch";
+				INFOPLIST_FILE = "BackgroundAudio/BackgroundAudio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89E4501515B8EEB2008AC606 /* Build configuration list for PBXProject "BackgroundAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89E4503A15B8EEB2008AC606 /* Debug */,
+				89E4503B15B8EEB2008AC606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89E4503C15B8EEB2008AC606 /* Build configuration list for PBXNativeTarget "BackgroundAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89E4503D15B8EEB2008AC606 /* Debug */,
+				89E4503E15B8EEB2008AC606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89E4501215B8EEB2008AC606 /* Project object */;
+}
