@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8916336B15B8F1350083A7C2 /* MusicQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8916336A15B8F1350083A7C2 /* MusicQuery.m */; };
+		8916336E15B8F1610083A7C2 /* TestMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8916336D15B8F1610083A7C2 /* TestMusicPlayer.m */; };
+		8916337015B8F2280083A7C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8916336F15B8F2280083A7C2 /* AVFoundation.framework */; };
+		8916337215B8F3010083A7C2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8916337115B8F3010083A7C2 /* AudioToolbox.framework */; };
+		8916337815B8F9990083A7C2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8916337715B8F9990083A7C2 /* MediaPlayer.framework */; };
 		89E4502015B8EEB2008AC606 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4501F15B8EEB2008AC606 /* UIKit.framework */; };
 		89E4502215B8EEB2008AC606 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4502115B8EEB2008AC606 /* Foundation.framework */; };
 		89E4502415B8EEB2008AC606 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4502315B8EEB2008AC606 /* CoreGraphics.framework */; };
@@ -19,21 +24,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8916336915B8F1350083A7C2 /* MusicQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MusicQuery.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8916336A15B8F1350083A7C2 /* MusicQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MusicQuery.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8916336C15B8F1610083A7C2 /* TestMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TestMusicPlayer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8916336D15B8F1610083A7C2 /* TestMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestMusicPlayer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8916336F15B8F2280083A7C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8916337115B8F3010083A7C2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8916337715B8F9990083A7C2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		89E4501B15B8EEB2008AC606 /* BackgroundAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E4501F15B8EEB2008AC606 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89E4502115B8EEB2008AC606 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89E4502315B8EEB2008AC606 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		89E4502715B8EEB2008AC606 /* BackgroundAudio-Info.plist */ = {isa = PBXFileReference; path = "BackgroundAudio-Info.plist"; sourceTree = "<group>"; };
+		89E4502715B8EEB2008AC606 /* BackgroundAudio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BackgroundAudio-Info.plist"; sourceTree = "<group>"; };
 		89E4502915B8EEB2008AC606 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		89E4502B15B8EEB2008AC606 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		89E4502D15B8EEB2008AC606 /* BackgroundAudio-Prefix.pch */ = {isa = PBXFileReference; path = "BackgroundAudio-Prefix.pch"; sourceTree = "<group>"; };
-		89E4502E15B8EEB2008AC606 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		89E4502F15B8EEB2008AC606 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		89E4502B15B8EEB2008AC606 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		89E4502D15B8EEB2008AC606 /* BackgroundAudio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BackgroundAudio-Prefix.pch"; sourceTree = "<group>"; };
+		89E4502E15B8EEB2008AC606 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		89E4502F15B8EEB2008AC606 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		89E4503215B8EEB2008AC606 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		89E4503415B8EEB2008AC606 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
-		89E4503515B8EEB2008AC606 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		89E4503715B8EEB2008AC606 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
-		89E4503815B8EEB2008AC606 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		89E4503415B8EEB2008AC606 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MasterViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		89E4503515B8EEB2008AC606 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MasterViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		89E4503715B8EEB2008AC606 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DetailViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		89E4503815B8EEB2008AC606 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +53,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8916337815B8F9990083A7C2 /* MediaPlayer.framework in Frameworks */,
+				8916337215B8F3010083A7C2 /* AudioToolbox.framework in Frameworks */,
+				8916337015B8F2280083A7C2 /* AVFoundation.framework in Frameworks */,
 				89E4502015B8EEB2008AC606 /* UIKit.framework in Frameworks */,
 				89E4502215B8EEB2008AC606 /* Foundation.framework in Frameworks */,
 				89E4502415B8EEB2008AC606 /* CoreGraphics.framework in Frameworks */,
@@ -50,9 +65,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8916336715B8F1130083A7C2 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				8916336915B8F1350083A7C2 /* MusicQuery.h */,
+				8916336A15B8F1350083A7C2 /* MusicQuery.m */,
+				8916336C15B8F1610083A7C2 /* TestMusicPlayer.h */,
+				8916336D15B8F1610083A7C2 /* TestMusicPlayer.m */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
 		89E4501015B8EEB2008AC606 = {
 			isa = PBXGroup;
 			children = (
+				8916337715B8F9990083A7C2 /* MediaPlayer.framework */,
 				89E4502515B8EEB2008AC606 /* BackgroundAudio */,
 				89E4501E15B8EEB2008AC606 /* Frameworks */,
 				89E4501C15B8EEB2008AC606 /* Products */,
@@ -70,6 +97,8 @@
 		89E4501E15B8EEB2008AC606 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8916337115B8F3010083A7C2 /* AudioToolbox.framework */,
+				8916336F15B8F2280083A7C2 /* AVFoundation.framework */,
 				89E4501F15B8EEB2008AC606 /* UIKit.framework */,
 				89E4502115B8EEB2008AC606 /* Foundation.framework */,
 				89E4502315B8EEB2008AC606 /* CoreGraphics.framework */,
@@ -80,6 +109,7 @@
 		89E4502515B8EEB2008AC606 /* BackgroundAudio */ = {
 			isa = PBXGroup;
 			children = (
+				8916336715B8F1130083A7C2 /* Music */,
 				89E4502E15B8EEB2008AC606 /* AppDelegate.h */,
 				89E4502F15B8EEB2008AC606 /* AppDelegate.m */,
 				89E4503115B8EEB2008AC606 /* MainStoryboard.storyboard */,
@@ -130,6 +160,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Jonathan Sagorin";
 			};
 			buildConfigurationList = 89E4501515B8EEB2008AC606 /* Build configuration list for PBXProject "BackgroundAudio" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -169,6 +200,8 @@
 				89E4503015B8EEB2008AC606 /* AppDelegate.m in Sources */,
 				89E4503615B8EEB2008AC606 /* MasterViewController.m in Sources */,
 				89E4503915B8EEB2008AC606 /* DetailViewController.m in Sources */,
+				8916336B15B8F1350083A7C2 /* MusicQuery.m in Sources */,
+				8916336E15B8F1610083A7C2 /* TestMusicPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +313,7 @@
 				89E4503E15B8EEB2008AC606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
