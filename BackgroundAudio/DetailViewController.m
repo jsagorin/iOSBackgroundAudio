@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *songIdLabel;
 @property (strong, nonatomic) IBOutlet UILabel *albumNameLabel;
-
+@property (strong, nonatomic) IBOutlet UIButton *playPauseButton;
 @end
 
 @implementation DetailViewController
@@ -29,6 +29,7 @@
 @synthesize artistNameLabel = _artistNameLabel;
 @synthesize albumNameLabel = _albumNameLabel;
 @synthesize songTitleLabel = _songTitleLabel;
+@synthesize playPauseButton = _playPauseButton;
 
 @synthesize musicPlayer = _musicPlayer;
 
@@ -56,6 +57,7 @@
     self.albumNameLabel = nil;
     self.songIdLabel = nil;
     self.songTitleLabel = nil;
+    self.playPauseButton = nil;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -76,4 +78,14 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+-(IBAction)playPauseButtonTapped:(UIButton*)button
+{
+    if ([button.titleLabel.text isEqualToString:@"Pause"]) {
+        [self.musicPlayer pause];
+        [button setTitle:@"Play" forState:UIControlStateNormal];
+    } else {
+        [self.musicPlayer play];
+        [button setTitle:@"Pause" forState:UIControlStateNormal];
+    }
+}
 @end
