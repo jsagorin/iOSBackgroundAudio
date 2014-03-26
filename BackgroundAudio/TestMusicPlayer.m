@@ -118,6 +118,14 @@
 
                 break;
             }
+            case UIEventSubtypeRemoteControlPlay: {
+                [[self avQueuePlayer] play];
+                break;
+            }
+            case UIEventSubtypeRemoteControlPause: {
+                [[self avQueuePlayer] pause];
+                break;
+            }
             default:
                 break;
         }

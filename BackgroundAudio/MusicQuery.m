@@ -60,7 +60,9 @@
                 NSString *songTitle =  [songMediumItem valueForProperty: MPMediaItemPropertyTitle];
                 NSNumber *persistentSongItemId = [songMediumItem valueForProperty:MPMediaItemPropertyPersistentID];
                 NSDictionary *artistAlbum = [songSortingArray objectForKey:albumName];
-                if (!artistAlbum) {
+                // sometimes the album name or artist name can be missing
+                // then we simply don't pick them to avoid a crash.
+                if (!artistAlbum && albumName && artistName) {
                     NSMutableArray *songs = [NSMutableArray array];
                     artistAlbum = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artistName,albumName,songs,nil] 
                                                               forKeys:[NSArray arrayWithObjects:@"artist",@"album", @"songs",nil]];

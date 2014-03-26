@@ -68,6 +68,13 @@
     [self.musicPlayer playSongWithId:self.songId];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
+    
+    // add now-playing-info.  Without it, the lock screen playback controls will
+    // disappear once the user taps "pause".  Idealy, the song's artwork should
+    // be given, too.
+    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.songTitle, MPMediaItemPropertyTitle,
+                                     self.artistName, MPMediaItemPropertyArtist,
+                                     nil, nil ];
 }
 
 -(void) viewWillDisappear:(BOOL)animated
