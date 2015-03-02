@@ -12,6 +12,7 @@
 		8916337015B8F2280083A7C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8916336F15B8F2280083A7C2 /* AVFoundation.framework */; };
 		8916337215B8F3010083A7C2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8916337115B8F3010083A7C2 /* AudioToolbox.framework */; };
 		8916337815B8F9990083A7C2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8916337715B8F9990083A7C2 /* MediaPlayer.framework */; };
+		892873CD1AA4780100526FEE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 892873CC1AA4780100526FEE /* Default-568h@2x.png */; };
 		89E4502015B8EEB2008AC606 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4501F15B8EEB2008AC606 /* UIKit.framework */; };
 		89E4502215B8EEB2008AC606 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4502115B8EEB2008AC606 /* Foundation.framework */; };
 		89E4502415B8EEB2008AC606 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E4502315B8EEB2008AC606 /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 		8916336F15B8F2280083A7C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8916337115B8F3010083A7C2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8916337715B8F9990083A7C2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		892873CC1AA4780100526FEE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		89E4501B15B8EEB2008AC606 /* BackgroundAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E4501F15B8EEB2008AC606 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89E4502115B8EEB2008AC606 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,7 @@
 		89E4502615B8EEB2008AC606 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				892873CC1AA4780100526FEE /* Default-568h@2x.png */,
 				89E4502715B8EEB2008AC606 /* BackgroundAudio-Info.plist */,
 				89E4502815B8EEB2008AC606 /* InfoPlist.strings */,
 				89E4502B15B8EEB2008AC606 /* main.m */,
@@ -159,7 +162,7 @@
 		89E4501215B8EEB2008AC606 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Jonathan Sagorin";
 			};
 			buildConfigurationList = 89E4501515B8EEB2008AC606 /* Build configuration list for PBXProject "BackgroundAudio" */;
@@ -186,6 +189,7 @@
 			files = (
 				89E4502A15B8EEB2008AC606 /* InfoPlist.strings in Resources */,
 				89E4503315B8EEB2008AC606 /* MainStoryboard.storyboard in Resources */,
+				892873CD1AA4780100526FEE /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,10 +235,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -244,10 +255,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -256,16 +271,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -278,6 +303,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundAudio/BackgroundAudio-Prefix.pch";
 				INFOPLIST_FILE = "BackgroundAudio/BackgroundAudio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -289,6 +315,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundAudio/BackgroundAudio-Prefix.pch";
 				INFOPLIST_FILE = "BackgroundAudio/BackgroundAudio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

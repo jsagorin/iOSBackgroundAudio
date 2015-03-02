@@ -33,32 +33,33 @@
 @property(nonatomic,strong) AVQueuePlayer *avQueuePlayer;
 @end
 @implementation TestMusicPlayer
-
-@synthesize avQueuePlayer=_avQueuePlayer;
-
 +(void)initSession
 {
     
-    // Registers this class as the delegate of the audio session.
-    [[AVAudioSession sharedInstance] setDelegate: self];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector:    @selector(audioSessionInterrupted:)
+                                                 name:        AVAudioSessionInterruptionNotification
+                                               object:      [AVAudioSession sharedInstance]]; 
+
     
-    NSError *setCategoryError = nil;
-    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: &setCategoryError];
-    if (setCategoryError) {
-        NSLog(@"Error setting category! %@", [setCategoryError localizedDescription]);
+    //set audio category with options - for this demo we'll do playback only
+    NSError *categoryError = nil;
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&categoryError];
+    
+    if (categoryError) {
+        NSLog(@"Error setting category! %@", [categoryError description]);
     }
     
-    UInt32 doSetProperty = 0;
-    AudioSessionSetProperty (
-                             kAudioSessionProperty_OverrideCategoryMixWithOthers,
-                             sizeof (doSetProperty),
-                             &doSetProperty
-                             );
-    
+    //activation of audio session
     NSError *activationError = nil;
     [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
-    if (activationError) {
-        NSLog(@"Could not activate audio session. %@", [activationError localizedDescription]);
+    BOOL success = [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
+    if (!success) {
+        if (activationError) {
+            NSLog(@"Could not activate audio session. %@", [activationError localizedDescription]);
+        } else {
+            NSLog(@"audio session activated!");
+        }
     }
     
 }
@@ -74,17 +75,22 @@
 
 -(void) playSongWithId:(NSNumber*)songId
 {
-    MPMediaItem *mediaItem = [[[MusicQuery alloc]init] queryForSongWithId:songId];
-    if (mediaItem) {
-        if (mediaItem) {
-            NSURL *assetUrl = [mediaItem valueForProperty: MPMediaItemPropertyAssetURL];
+    [[MusicQuery new] queryForSongWithId:songId completion:^(MPMediaItem *item) {
+        if (item) {
+            NSURL *assetUrl = [item valueForProperty: MPMediaItemPropertyAssetURL];
             AVPlayerItem *avSongItem = [[AVPlayerItem alloc] initWithURL:assetUrl];
             if (avSongItem) {
                 [[self avQueuePlayer] insertItem:avSongItem afterItem:nil];
                 [self play];
             }
         }
-    }
+    }];
+}
+
+#pragma mark - notifications
+-(void)audioSessionInterrupted:(NSNotification*)interruptionNotification
+{
+    NSLog(@"interruption received: %@", interruptionNotification);
 }
 
 #pragma mark - player actions
@@ -105,6 +111,7 @@
 }
 
 #pragma mark - remote control events
+     
 - (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
     NSLog(@"received event!");
     if (receivedEvent.type == UIEventTypeRemoteControl) {
