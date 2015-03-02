@@ -31,8 +31,7 @@
 @implementation MusicQuery
 
 -(void) queryForSongs:(void (^)(NSDictionary* result))completion {
-    NSDictionary *songResults = [self songQuery];
-    completion(songResults);
+    completion([self songQuery]);
 }
 
 -(void)queryForSongWithId:(NSNumber *)songPersistenceId completion:(void(^)(MPMediaItem * item))completion;
@@ -77,13 +76,14 @@
             }
             
             NSMutableArray *songs = [NSMutableArray array];
+            NSDictionary *song = [NSDictionary dictionaryWithObjects:@[songTitle,persistentSongItemId]
+                                                             forKeys:@[@"title",@"songId"]];
+
             artistAlbum = [NSDictionary dictionaryWithObjects:@[artistName,albumName,songs]
                                                       forKeys:@[@"artist",@"album", @"songs"]];
             
             [songSortingArray setObject:artistAlbum forKey:albumName];
             
-            NSDictionary *song = [NSDictionary dictionaryWithObjects:@[songTitle,persistentSongItemId]
-                                                             forKeys:@[@"title",@"songId"]];
             [[artistAlbum objectForKey:@"songs"] addObject:song];
             songCount++;
         }
@@ -103,7 +103,7 @@
         [songSortingArray removeAllObjects];
     }
     
-    return @{artists: @"artists", @"songCount": [NSNumber numberWithInt:songCount]};
+    return @{@"artists": artists, @"songCount": [NSNumber numberWithInt:songCount]};
 }
 
 @end

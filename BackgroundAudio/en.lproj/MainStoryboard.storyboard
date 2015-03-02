@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" promptedForUpgradeToXcode5="NO" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -81,30 +81,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="albumName" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="o1l-nJ-cNQ">
-                                <rect key="frame" x="16" y="124" width="280" height="18"/>
-                                <color key="backgroundColor" red="1" green="0.14906439360000001" blue="0.18457143249999999" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="artistName" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gn0-Vd-7Wf">
-                                <rect key="frame" x="14" y="46.5" width="280" height="18"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="songId" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-1s-NQJ">
+                                <rect key="frame" x="138" y="356" width="44" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="songName" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="j46-52-1gd">
-                                <rect key="frame" x="16" y="186" width="280" height="18"/>
-                                <color key="backgroundColor" red="1" green="0.14906439360000001" blue="0.18457143249999999" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="songId" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-1s-NQJ">
-                                <rect key="frame" x="20" y="244" width="280" height="18"/>
-                                <color key="backgroundColor" red="1" green="0.14906439360000001" blue="0.18457143249999999" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -115,22 +94,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="o1E-hz-C0u">
-                                <rect key="frame" x="16" y="91" width="49" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.14906439360000001" blue="0.18457143249999999" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="o1E-hz-C0u">
+                                <rect key="frame" x="138" y="202" width="45" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Song Id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="vWj-JZ-yDJ">
-                                <rect key="frame" x="20" y="222" width="60" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.14906439360000001" blue="0.18457143249999999" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Song Id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="vWj-JZ-yDJ">
+                                <rect key="frame" x="133" y="328" width="55" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCD-PB-rAQ">
-                                <rect key="frame" x="124" y="283" width="72" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCD-PB-rAQ">
+                                <rect key="frame" x="125" y="391" width="70" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="noK-Z9-QtK"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="ysd-uF-N4q"/>
+                                </constraints>
                                 <state key="normal" title="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -138,22 +122,59 @@
                                     <action selector="playPauseButtonTapped:" destination="21" eventType="touchUpInside" id="UP1-Fk-3SB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="oGS-aD-b1C">
-                                <rect key="frame" x="16" y="162" width="49" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.14906439360000001" blue="0.18457143249999999" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="artist" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="NTp-JO-Bck">
+                                <rect key="frame" x="144" y="169" width="33" height="17"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" size="system"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="CZf-zj-As3">
+                                <rect key="frame" x="142" y="141" width="38" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="albumName" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="o1l-nJ-cNQ">
+                                <rect key="frame" x="121" y="230" width="78" height="17"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" size="system"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="songName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orq-IA-oea">
+                                <rect key="frame" x="117" y="90" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MsD-Br-La7" firstAttribute="top" secondItem="UCD-PB-rAQ" secondAttribute="bottom" constant="49" id="37E-7k-a4m"/>
+                            <constraint firstAttribute="centerX" secondItem="UCD-PB-rAQ" secondAttribute="centerX" id="3n8-Hk-kcc"/>
+                            <constraint firstItem="o1l-nJ-cNQ" firstAttribute="top" secondItem="o1E-hz-C0u" secondAttribute="bottom" constant="10" id="BPf-Zo-qHe"/>
+                            <constraint firstAttribute="centerX" secondItem="vWj-JZ-yDJ" secondAttribute="centerX" id="BVU-Sv-BU8"/>
+                            <constraint firstItem="CZf-zj-As3" firstAttribute="top" secondItem="orq-IA-oea" secondAttribute="bottom" constant="30" id="Cu9-lB-FMG"/>
+                            <constraint firstAttribute="centerX" secondItem="Bha-1s-NQJ" secondAttribute="centerX" id="D5R-Z7-9Xm"/>
+                            <constraint firstItem="orq-IA-oea" firstAttribute="top" secondItem="Kwe-Eu-PAB" secondAttribute="bottom" constant="26" id="Fcz-YP-YhJ"/>
+                            <constraint firstAttribute="centerX" secondItem="NTp-JO-Bck" secondAttribute="centerX" id="Ivc-Rc-rDf"/>
+                            <constraint firstAttribute="centerX" secondItem="CZf-zj-As3" secondAttribute="centerX" constant="-0.5" id="RBT-yf-gWe"/>
+                            <constraint firstAttribute="centerX" secondItem="o1l-nJ-cNQ" secondAttribute="centerX" id="YOJ-TC-KgX"/>
+                            <constraint firstAttribute="centerX" secondItem="orq-IA-oea" secondAttribute="centerX" constant="1" id="c2w-UT-4aL"/>
+                            <constraint firstItem="Bha-1s-NQJ" firstAttribute="top" secondItem="vWj-JZ-yDJ" secondAttribute="bottom" constant="10" id="jAh-tm-9t4"/>
+                            <constraint firstAttribute="centerX" secondItem="o1E-hz-C0u" secondAttribute="centerX" constant="-0.5" id="kGg-CX-dqN"/>
+                            <constraint firstItem="NTp-JO-Bck" firstAttribute="top" secondItem="CZf-zj-As3" secondAttribute="bottom" constant="10" id="klZ-nY-P6q"/>
+                            <constraint firstItem="UCD-PB-rAQ" firstAttribute="top" secondItem="Bha-1s-NQJ" secondAttribute="bottom" constant="18" id="nZf-d1-Hyq"/>
+                            <constraint firstItem="o1E-hz-C0u" firstAttribute="top" secondItem="NTp-JO-Bck" secondAttribute="bottom" constant="16" id="yaA-LM-cfT"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Song Detail" id="26"/>
+                    <navigationItem key="navigationItem" title="Song" id="26"/>
                     <connections>
                         <outlet property="albumNameLabel" destination="o1l-nJ-cNQ" id="Am0-Qj-lhw"/>
-                        <outlet property="artistNameLabel" destination="gn0-Vd-7Wf" id="Vjb-Nf-WKF"/>
+                        <outlet property="artistNameLabel" destination="NTp-JO-Bck" id="vzB-aS-1bb"/>
                         <outlet property="songIdLabel" destination="Bha-1s-NQJ" id="eau-p5-z53"/>
-                        <outlet property="songTitleLabel" destination="j46-52-1gd" id="atR-mA-RsM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>

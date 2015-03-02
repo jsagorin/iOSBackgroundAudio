@@ -35,11 +35,6 @@
 @implementation MasterViewController
 
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -100,8 +95,7 @@
 -(void)querySongs:(id)sender
 {
     self.title = @"Querying...";
-    MusicQuery *musicQuery = [[MusicQuery alloc]init];
-    [musicQuery queryForSongs:^(NSDictionary *result) {
+    [[MusicQuery new] queryForSongs:^(NSDictionary *result) {
         self.artists = [result objectForKey:@"artists"];
         self.title = [NSString stringWithFormat:@"Songs (%@)", [result objectForKey:@"songCount"]];
         [self.tableView reloadData];

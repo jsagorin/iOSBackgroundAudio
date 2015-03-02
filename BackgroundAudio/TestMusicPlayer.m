@@ -82,6 +82,10 @@
             if (avSongItem) {
                 [[self avQueuePlayer] insertItem:avSongItem afterItem:nil];
                 [self play];
+                // add now-playing-info.  Without it, the lock screen playback controls will
+                // disappear once the user taps "pause".
+                [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = @{MPMediaItemPropertyTitle: [item valueForProperty: MPMediaItemPropertyTitle], MPMediaItemPropertyArtist: MPMediaItemPropertyArtist, MPMediaItemPropertyArtwork: [item valueForProperty:MPMediaItemPropertyArtwork]};
+
             }
         }
     }];
