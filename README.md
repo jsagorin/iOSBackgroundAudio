@@ -1,9 +1,9 @@
 iOSBackgroundAudio
 ==================
 
-Sample iOS 5+ code for playing audio in the background. 
- - Demonstrates iTunes music queries, playing songs, and remote control events.
+Sample iOS 8 code for playing audio in the background. 
+ - Demonstrates iTunes music queries, playing songs, and remote control events received in the control center.
+For more details, see this blog post: http://www.sagorin.org/2011/11/29/ios-playing-audio-in-background-audio/
 
-Run code on a device with some music - won't be very useful in the simulator.
+Run code on a device with some music (no songs in the iOS simulator)
 
-Demonstrates topics covered in this blog post: http://www.sagorin.org/2011/11/29/ios-playing-audio-in-background-audio/
