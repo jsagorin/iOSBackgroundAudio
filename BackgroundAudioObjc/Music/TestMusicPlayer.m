@@ -1,6 +1,6 @@
 //
-//  MusicPlayer.m
-//  BackgroundAudio
+//  TestMusicPlayer.m
+//  BackgroundAudioObjc
 //
 //  Created by Jonathan Sagorin on 7/20/12.
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,12 +26,11 @@
 #import "TestMusicPlayer.h"
 #import "MusicQuery.h"
 #import <AVFoundation/AVFoundation.h>
-#import <AudioToolbox/AudioToolbox.h>
-#import <MediaPlayer/MediaPlayer.h>
 
 @interface TestMusicPlayer()
 @property(nonatomic,strong) AVQueuePlayer *avQueuePlayer;
 @end
+
 @implementation TestMusicPlayer
 +(void)initSession
 {
@@ -44,7 +43,7 @@
     
     //set audio category with options - for this demo we'll do playback only
     NSError *categoryError = nil;
-    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&categoryError];
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error:&categoryError];
     
     if (categoryError) {
         NSLog(@"Error setting category! %@", [categoryError description]);
@@ -52,13 +51,12 @@
     
     //activation of audio session
     NSError *activationError = nil;
-    [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
     BOOL success = [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
     if (!success) {
         if (activationError) {
             NSLog(@"Could not activate audio session. %@", [activationError localizedDescription]);
         } else {
-            NSLog(@"audio session activated!");
+            NSLog(@"audio session could not be activated!");
         }
     }
     
@@ -73,7 +71,7 @@
     return _avQueuePlayer;
 }
 
--(void) playSongWithId:(NSNumber*)songId
+-(void) playSongWithId:(NSNumber*)songId songTitle:(NSString*)songTitle artist:(NSString*)artist
 {
     [[MusicQuery new] queryForSongWithId:songId completion:^(MPMediaItem *item) {
         if (item) {
@@ -82,9 +80,7 @@
             if (avSongItem) {
                 [[self avQueuePlayer] insertItem:avSongItem afterItem:nil];
                 [self play];
-                // add now-playing-info.  Without it, the lock screen playback controls will
-                // disappear once the user taps "pause".
-                [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = @{MPMediaItemPropertyTitle: [item valueForProperty: MPMediaItemPropertyTitle], MPMediaItemPropertyArtist: MPMediaItemPropertyArtist, MPMediaItemPropertyArtwork: [item valueForProperty:MPMediaItemPropertyArtwork]};
+                [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = @{MPMediaItemPropertyTitle: songTitle, MPMediaItemPropertyArtist: artist};
 
             }
         }

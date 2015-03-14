@@ -1,9 +1,9 @@
 //
-//  AppDelegate.h
-//  BackgroundAudio
+//  MusicPlayer.h
+//  BackgroundAudioObjc
 //
 //  Created by Jonathan Sagorin on 7/20/12.
-//  Copyright (c) 2012 Jonathan Sagorin. All rights reserved.
+//  Copyright (c) 2012 Jonathan Sagorin.
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
 //  in the Software without restriction, including without limitation the rights
@@ -23,12 +23,16 @@
 //  THE SOFTWARE.
 //
 //
-//
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <MediaPlayer/MediaPlayer.h>
+@interface TestMusicPlayer : NSObject
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+//initialize the audio session
++(void) initSession;
+-(void) playSongWithId:(NSNumber*)songId songTitle:(NSString*)songTitle artist:(NSString*)artist;
+-(void) pause;
+-(void) play;
+-(void) clear;
+-(void) remoteControlReceivedWithEvent:(UIEvent *)receivedEvent;
 @end

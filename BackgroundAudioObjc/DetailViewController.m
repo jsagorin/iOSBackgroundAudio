@@ -1,26 +1,8 @@
 //
 //  DetailViewController.m
-//  BackgroundAudio
+//  BackgroundAudioObjc
 //
-//  Created by Jonathan Sagorin on 7/20/12.
-//  Copyright (c) 2012 Jonathan Sagorin. All rights reserved.
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+//  Created by Jonathan Sagorin on 3/4/2015.
 //
 //
 
@@ -29,6 +11,7 @@
 
 @interface DetailViewController ()
 @property (strong, nonatomic) TestMusicPlayer *musicPlayer;
+
 @property (weak, nonatomic) IBOutlet UILabel *songTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *songIdLabel;
@@ -37,30 +20,45 @@
 @end
 
 @implementation DetailViewController
+
 #pragma mark - Managing the detail item
 
-- (void)configureView
-{
-    self.artistNameLabel.text = self.artistName;
-    self.albumNameLabel.text = self.albumName;
-    self.songTitleLabel.text = self.songTitle;
-    self.songIdLabel.text = [NSString stringWithFormat :@"%@",self.songId];
+-(void)setArtistAlbum:(NSDictionary *)newArtistAlbum {
+    if (_artistAlbum != newArtistAlbum) {
+        _artistAlbum = newArtistAlbum;
+        // Update the view.
+        [self configureView];
+    }
 }
 
-- (void)viewDidLoad
-{
+- (void)configureView {
+    // Update the user interface for the detail item.
+    if (self.artistAlbum) {
+        self.artistNameLabel.text = self.artistAlbum[@"artist"];
+        self.albumNameLabel.text = self.artistAlbum[@"album"];
+        NSDictionary *song = [self.artistAlbum[@"songs"] objectAtIndex:self.songIndex];
+        self.songTitleLabel.text = song[@"title"];
+        self.songIdLabel.text = [NSString stringWithFormat:@"%@", song[@"songId"]];
+
+    }
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     [TestMusicPlayer initSession];
     self.musicPlayer = [[TestMusicPlayer alloc]init];
+
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-
+    
     //play song
-    [self.musicPlayer playSongWithId:self.songId];
+    NSDictionary *song = [self.artistAlbum[@"songs"] objectAtIndex:self.songIndex];
+    [self.musicPlayer playSongWithId:song[@"songId"] songTitle:song[@"title"] artist:self.artistAlbum[@"artist"]];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
     
@@ -75,6 +73,14 @@
     [super viewWillDisappear:animated];
 }
 
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - user actions
 -(IBAction)playPauseButtonTapped:(UIButton*)button
 {
     if ([button.titleLabel.text isEqualToString:@"Pause"]) {
@@ -96,5 +102,7 @@
     return YES;
 }
 
-
 @end
+
+
+
