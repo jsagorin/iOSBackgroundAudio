@@ -7,3 +7,5 @@ For more details, see this blog post: http://www.sagorin.org/2011/11/29/ios-play
 
 Run code on a device with some music (no songs in the iOS simulator)
 
+For the Swift version of this code, see https://github.com/jsagorin/iOSBackgroundAudioSwift
+
