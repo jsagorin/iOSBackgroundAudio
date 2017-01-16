@@ -17,10 +17,9 @@
 @implementation MasterViewController
 
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self querySongs];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestAuth];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -68,15 +67,50 @@
     return artistAlbum[@"artist"];
 }
 
+-(void)requestAuth
+{
+    [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status) {
+        switch (status) {
+            case MPMediaLibraryAuthorizationStatusNotDetermined:
+                [self requestAuth];
+                break;
+            case MPMediaLibraryAuthorizationStatusAuthorized:
+                [self querySongs];
+                break;
+            default:
+                [self displayPermissionsError];
+        }
+    }];
+}
+
 -(void)querySongs
 {
     self.title = @"Querying...";
     [[MusicQuery new] queryForSongs:^(NSDictionary *result) {
         self.artists = result[@"artists"];
-        self.title = [NSString stringWithFormat:@"Songs (%@)", result[@"songCount"]];
-        [self.tableView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.title = [NSString stringWithFormat:@"Songs (%@)", result[@"songCount"]];
+            [self.tableView reloadData];
+        });
     }];
     
+}
+
+-(void) displayPermissionsError {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"This is a demo" message:@"Unauthorized or restricted access. Cannot play media. Fix in Settings?" preferredStyle:UIAlertControllerStyleAlert];
+    //cancel
+    NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if (settingsURL && [[UIApplication sharedApplication] canOpenURL:settingsURL]) {
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[UIApplication sharedApplication] openURL:settingsURL];
+        }];
+        [alertVC addAction:settingsAction];
+    } else {
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    }
+    
+    [self presentViewController:alertVC animated:true completion:nil];
 }
 
 @end

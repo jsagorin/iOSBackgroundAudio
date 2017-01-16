@@ -58,17 +58,26 @@
     
     //play song
     NSDictionary *song = [self.artistAlbum[@"songs"] objectAtIndex:self.songIndex];
-    [self.musicPlayer playSongWithId:song[@"songId"] songTitle:song[@"title"] artist:self.artistAlbum[@"artist"]];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    [self becomeFirstResponder];
+    [self.musicPlayer songIsAvailable:song[@"songId"] completion:^(BOOL available) {
+        if (available) {
+            [self.musicPlayer playSongWithId:song[@"songId"] songTitle:song[@"title"] artist:self.artistAlbum[@"artist"]];
+            [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+            [self becomeFirstResponder];
+        } else {
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Error" message:@"Song is not available. It may not be downloaded" preferredStyle:UIAlertControllerStyleAlert];
+            [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alertVC animated:true completion:nil];
+        }
+    }];
     
 }
 
 -(void) viewWillDisappear:(BOOL)animated
 {
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
-    [self resignFirstResponder];
-    
+    if ([self isFirstResponder]) {
+        [self resignFirstResponder];
+    }
     [self.musicPlayer clear];
     [super viewWillDisappear:animated];
 }

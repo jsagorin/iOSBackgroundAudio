@@ -76,19 +76,35 @@
     [[MusicQuery new] queryForSongWithId:songId completion:^(MPMediaItem *item) {
         if (item) {
             NSURL *assetUrl = [item valueForProperty: MPMediaItemPropertyAssetURL];
-            AVPlayerItem *avSongItem = [[AVPlayerItem alloc] initWithURL:assetUrl];
-            if (avSongItem) {
-                [[self avQueuePlayer] insertItem:avSongItem afterItem:nil];
-                [self play];
-                [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = @{MPMediaItemPropertyTitle: songTitle, MPMediaItemPropertyArtist: artist};
-
+            if (assetUrl) {
+                AVPlayerItem *avSongItem = [[AVPlayerItem alloc] initWithURL:assetUrl];
+                if (avSongItem) {
+                    [[self avQueuePlayer] insertItem:avSongItem afterItem:nil];
+                    [self play];
+                    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = @{MPMediaItemPropertyTitle: songTitle, MPMediaItemPropertyArtist: artist};
+                    
+                }
+            } else {
+                NSLog(@"ERROR: assetURL for song id %@ was not found: ", songId);
             }
+        } else {
+            NSLog(@"ERROR: item with song id %@ was not found: ", songId);
+        }
+    }];
+}
+
+-(void) songIsAvailable:(NSNumber*)songId completion:(void(^)(BOOL available))completion
+{
+    [[MusicQuery new] queryForSongWithId:songId completion:^(MPMediaItem *item) {
+        if (item) {
+            NSURL *assetUrl = [item valueForProperty: MPMediaItemPropertyAssetURL];
+            completion(assetUrl!= nil);
         }
     }];
 }
 
 #pragma mark - notifications
--(void)audioSessionInterrupted:(NSNotification*)interruptionNotification
++(void)audioSessionInterrupted:(NSNotification*)interruptionNotification
 {
     NSLog(@"interruption received: %@", interruptionNotification);
 }

@@ -31,6 +31,7 @@
 //initialize the audio session
 +(void) initSession;
 -(void) playSongWithId:(NSNumber*)songId songTitle:(NSString*)songTitle artist:(NSString*)artist;
+-(void) songIsAvailable:(NSNumber*)songId completion:(void(^)(BOOL available))completion;
 -(void) pause;
 -(void) play;
 -(void) clear;
