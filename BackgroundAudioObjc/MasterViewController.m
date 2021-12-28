@@ -22,10 +22,6 @@
     [self requestAuth];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
-}
-
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,7 +81,10 @@
 
 -(void)querySongs
 {
-    self.title = @"Querying...";
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.title = @"Querying...";
+    });
+
     [[MusicQuery new] queryForSongs:^(NSDictionary *result) {
         self.artists = result[@"artists"];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -103,7 +102,14 @@
     if (settingsURL && [[UIApplication sharedApplication] canOpenURL:settingsURL]) {
         [alertVC addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
         UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [[UIApplication sharedApplication] openURL:settingsURL];
+            
+            
+            UIApplication *application = [UIApplication sharedApplication];
+            [application openURL:settingsURL options:@{} completionHandler:^(BOOL success) {
+                if (!success) {
+                     NSLog(@"Opened url");
+                }
+            }];
         }];
         [alertVC addAction:settingsAction];
     } else {
